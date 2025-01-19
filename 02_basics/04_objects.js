@@ -53,13 +53,19 @@ const users = [
 // console.log(Object.values(tinderUser)); //[ '123abc', 'mahi', false ]
 // console.log(Object.entries(tinderUser));//[ [ 'id', '123abc' ], [ 'name', 'mahi' ], [ 'isLoggedIn', false ] ]
 
-console.log(tinderUser.hasOwnProperty("isLoggedIn")); //true
-console.log(tinderUser.hasOwnProperty("isLogged")); //false
+// console.log(tinderUser.hasOwnProperty("isLoggedIn")); //true
+// console.log(tinderUser.hasOwnProperty("isLogged")); //false
 
+//Object destructing and JSON Api
 const course = {
   coursename: "js in hindi",
   price: "999",
   courseInstructor: "hitesh",
 };
-
 // course.courseInstructor
+
+// const { courseInstructor } = course;
+// console.log(courseInstructor);//hitesh
+
+// const { courseInstructor: instructor } = course;
+// console.log(instructor);//hitesh
