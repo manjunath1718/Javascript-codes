@@ -19,12 +19,19 @@ const user = {
 // }
 // chai();
 
+// const chai = function () {
+//   let username = "hitesh";
+//   console.log(this.username); //undefined
+//   console.log(this); //Object [global]
+// };
+// chai();
+
 const chai = () => {
   let username = "hitesh";
   console.log(this.username); //undefined
   console.log(this); //{}
 };
-// chai();
+chai();
 /* 
 const person = {
   name: "Alice",
