@@ -21,10 +21,9 @@ console.log(Array.isArray("virat")); //false
 console.log(Array.from("virat")); //[ 'v', 'i', 'r', 'a', 't' ]
 console.log(Array.from(Object.values({ name: "virat", age: 22 }))); //[ 'virat', 22 ]
 console.log(Array.from(Object.keys({ name: "virat", age: 22 }))); //[ 'name', 'age' ]
-console.log(Array.from([{ name: "virat" }, { name: "mahi" }])); //[ { name: 'virat' }, { name: 'mahi' } ]
 
 let score1 = 80;
 let score2 = 90;
 let score3 = 85;
 
-console.log(Array.of(score1, score2, score3));//[ 80, 90, 85 ]
+console.log(Array.of(score1, score2, score3)); //[ 80, 90, 85 ]
