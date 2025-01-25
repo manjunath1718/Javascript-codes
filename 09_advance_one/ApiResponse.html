@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body style="background-color: #212121;color: white;">
+    0 UNSENT Client has been created. open() not called yet.
+    1 OPENED open() has been called.
+    2 HEADERS_RECEIVED send() has been called, and headers and status are available.
+    3 LOADING Downloading; responseText holds partial data.
+    4 DONE The operation is complete.
+
+    <br>
+
+    <button>view</button>
+    <div id="profilePic">
+
+    </div>
+</body>
+<script>
+
+    let imageUrl;
+    let noOffollowers;
+    const requestUrl = 'https://api.github.com/users/hiteshchoudhary'
+    const xhr = new XMLHttpRequest()
+    console.log(xhr.readyState);//0
+
+    xhr.open('GET', requestUrl)
+    console.log(xhr.readyState);//1
+
+    xhr.onreadystatechange = function () {
+        console.log(xhr.readyState);//2,3,4
+
+        if (xhr.readyState === 4) {
+
+            const data = JSON.parse(this.responseText)
+            // console.log(typeof data);
+            console.log(data);
+            console.log(data.followers);
+            console.log(data.avatar_url);
+            noOffollowers = data.followers;
+            imageUrl = data.avatar_url
+
+
+        }
+    }
+    xhr.send()
+
+    document.querySelector('button').addEventListener('click', () => {
+        const profilePic = document.querySelector('#profilePic')
+
+        const img = document.createElement('IMG')
+        img.setAttribute('src', imageUrl)
+
+        profilePic.appendChild(img)
+
+        const followers = document.createElement('h2')
+        followers.innerHTML = `<span>No of followers : ${noOffollowers}</span>`
+        console.log(followers);
+
+        profilePic.appendChild(followers)
+    })
+
+</script>
+
+</html>
